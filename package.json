@@ -4,7 +4,8 @@
   "description": "An little express server testing Algoan's score integration",
   "main": "dist/index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "format": "prettier --write \"src/**/*\"",
+    "start": "nodemon",
     "test": "jest"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "eslint": "^7.10.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
+    "nodemon": "^2.0.4",
     "prettier": "^2.1.2",
     "ts-node": "^9.0.0",
     "tslint": "^6.1.3",
