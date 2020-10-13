@@ -114,7 +114,7 @@ app.get('/aden', async (req: express.Request, res: express.Response) => {
   /**
    * Try to get the aden property
    */
-  const retryCount: number = 10;
+  const retryCount: number = 30;
   let count: number = 0;
 
   do {
