@@ -5,4 +5,4 @@ dist
 coverage/
 creds.json
 config/user
-Config.d.ts
+config/Config.d.ts
