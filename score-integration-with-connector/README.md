@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.algoan.com/" target="blank"><img src="./assets/score.png" alt="Algoan Score Logo" /></a>
+  <a href="https://www.algoan.com/" target="blank"><img src="./assets/score.png" width="300" alt="Algoan Score Logo" /></a>
 </p>
 
 # Algoan Score Integration with a Budget Insight connector
