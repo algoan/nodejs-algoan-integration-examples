@@ -1,7 +1,7 @@
 {
-  "name": "@algoan/score-integration-poc",
+  "name": "@algoan/score-integration-with-connector",
   "version": "1.0.0",
-  "description": "An little express server testing Algoan's score integration",
+  "description": "A little express server testing Algoan's score integration",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p .",
