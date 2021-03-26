@@ -6,7 +6,7 @@
 
 A simple [express.js](https://expressjs.com) server testing Algoan's Score and Credit Insights integration.
 
-This repository is an example of the integration of a score without a connector. It implements the flow described in the [public documentation](https://algoan.github.io/openapi-v2/#section/Integration).
+This repository is an example of the integration of Score and Credit Insights without a connector. It implements the flow described in the [public documentation](https://algoan.github.io/openapi-v2/#section/Integration).
 
 ## Features
 
@@ -29,13 +29,13 @@ npm install
 
 ## Usage
 
-Once your local connector is launched and your REST hooks are created, you can now start the application:
+You can now start the application:
 
 ```bash
 npm start
 ```
 
-Then, go to your favorite browser and navigate to [http://localhost:3000]. It will display a web page with two buttons.
+Then, go to your favorite browser and navigate to [http://localhost:3000]. It will display a web page with one button:
 
 - Click on the "Launch score" to begin with the process
   
