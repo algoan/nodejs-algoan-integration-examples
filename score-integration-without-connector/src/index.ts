@@ -43,6 +43,8 @@ app.get('/', (req: express.Request, res: express.Response) => {
  * Upload accounts and transactions and retrieves scores
  */
 app.get('/scores', async (req: express.Request, res: express.Response) => {
+  const startingAt: Date = new Date();
+
   try {
     /**
      * Create a new Customer
@@ -51,7 +53,7 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
       method: 'POST',
       url: '/v2/customers',
       data: {
-        customIdentifier: 'ca63b167-11d6-4793-a0c2-f22e218c8969',
+        customIdentifier: v4(),
         personalDetails: {
           identity: {
             firstName: 'John',
@@ -76,6 +78,7 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
         accounts: sample.accounts,
       },
     });
+    console.log(`New analysis created: ${JSON.stringify(newAnalysis)}`);
 
     /**
      * Try to get result
@@ -91,6 +94,7 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
         method: 'GET',
         url: `/v2/customers/${customerId}/analyses/${newAnalysis.id}`,
       });
+      console.log(`Get a analysis with count ${count} after ${Date.now() - startingAt.valueOf()} ms: ${JSON.stringify(analysis)}`);
       isScoreDefined = analysis.scores !== undefined;
       count++;
     } while (!isScoreDefined && count < retryCount);
@@ -102,7 +106,7 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
     }
 
     res.render('index', {
-      aden: JSON.stringify(analysis, null, 4),
+      analysis: JSON.stringify(analysis, null, 4),
     });
   } catch(err) {
     console.error(err);
