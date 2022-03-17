@@ -1,7 +1,8 @@
 {
   "algoan": {
-    "baseUrl": "",
+    "baseUrl": "https://api.algoan.com",
     "clientId": "",
     "clientSecret": ""
-  }
+  },
+  "sampleUrl": "https://raw.githubusercontent.com/algoan/fake-open-banking-data/main/samples/fr/harry_potter.json"
 }

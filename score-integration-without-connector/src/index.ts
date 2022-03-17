@@ -1,4 +1,5 @@
 import { RequestBuilder } from '@algoan/rest';
+import axios from 'axios';
 import * as delay from 'delay';
 import * as express from 'express';
 import * as exphbs from 'express-handlebars';
@@ -6,12 +7,10 @@ import { StatusCodes } from 'http-status-codes';
 import { config } from 'node-config-ts';
 import { v4 } from 'uuid';
 
-import * as sample from '../samples/perfect.json';
-
 const app: express.Application = express();
 const port: number = 3000;
 const defaultDelay: number = 2000;
-
+let loadedSample: any;
 /**
  * Initiate a Request Builder instance
  * This class handles OAuth2 authentication and is able to refresh tokens
@@ -60,7 +59,7 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
             lastName: 'Doe',
           },
           contact: {
-            email: `JohnDoe@${v4()}.com`,
+            email: `john-doe@${v4()}.com`,
           },
         },
       },
@@ -75,7 +74,7 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
       method: 'POST',
       url: `/v2/customers/${customerId}/analyses`,
       data: {
-        accounts: sample.accounts,
+        accounts: loadedSample.accounts,
       },
     });
     console.log(`New analysis created: ${JSON.stringify(newAnalysis)}`);
@@ -95,7 +94,7 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
         url: `/v2/customers/${customerId}/analyses/${newAnalysis.id}`,
       });
       console.log(`Get a analysis with count ${count} after ${Date.now() - startingAt.valueOf()} ms: ${JSON.stringify(analysis)}`);
-      isScoreDefined = analysis.scores !== undefined;
+      isScoreDefined = analysis.status === 'COMPLETED' || analysis.status === 'ERROR';
       count++;
     } while (!isScoreDefined && count < retryCount);
 
@@ -115,6 +114,8 @@ app.get('/scores', async (req: express.Request, res: express.Response) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(port, async () => {
+  loadedSample = await axios.get(config.sampleUrl);
+  loadedSample = loadedSample.data;
   console.log(`App listening on port http://localhost:${port}`);
 });
