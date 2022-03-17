@@ -8,19 +8,8 @@ This repository lists some examples written in [Node.js](https://nodejs.org/en/)
 
 For more help, do not hesitate to:
 
-- 📒 Have a look at the [public documentation](https://developers.algoan.com)
-- 📝 Consult our [APIs](https://developers.algoan.com/api)
+- 📝 Consult our [APIs](https://docs.algoan.com)
 - 📥 Contact us at support@algoan.com
-- 📣 The second version of our APIs will be out soon! Here is a [draft of the new documentation](https://algoan.github.io/openapi-v2)
-
-## Score integration with a connector - V1
-
-This example shows you how to retrieve the score with a [Budget Insight connector](https://github.com/algoan/nestjs-budget-insight-connector).
-
-**[TL;DR](./score-integration-with-connector/): How to integrate the score with a connector**
-
-⚠️ _This example is still on the first version of Algoan's API and will be updated soon_
-
 ## Score integration without a connector - V2
 
 If you are already able to retrieve banking data from a customer, follow this example.
