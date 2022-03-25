@@ -28,7 +28,6 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "@algoan/rest": "^2.3.0",
     "axios": "^0.26.1",
     "delay": "^5.0.0",
     "express": "^4.17.1",

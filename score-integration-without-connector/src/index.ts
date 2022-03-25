@@ -1,4 +1,5 @@
-import { RequestBuilder } from '@algoan/rest';
+import { RequestBuilder } from './RequestBuilder';
+
 import axios from 'axios';
 import * as delay from 'delay';
 import * as express from 'express';
